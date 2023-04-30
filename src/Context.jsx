@@ -29,18 +29,24 @@ function ContextProvider({children}) {
         setAllPhotos(updatedArr)
     }
 
+    // Add item to cart
     function addToCart(newItem) {
         setCartItems((prevItems) => [ ...prevItems, newItem])
         console.log(newItem.id)
     }
 
+    // Remove item from cart
     function removeFromCart(id) {
         // Get the previous cart items and filter out the cart items that don't match the items id
         setCartItems((prevItems) => prevItems.filter((item) => item.id != id))
     }
 
+    function emptyCart() {
+        setCartItems([])
+    }
+
     return (
-        <Context.Provider value={{allPhotos, toggleFavorite, addToCart, cartItems, removeFromCart}}>
+        <Context.Provider value={{allPhotos, toggleFavorite, addToCart, cartItems, removeFromCart, emptyCart}}>
             {children}
         </Context.Provider>
     )
