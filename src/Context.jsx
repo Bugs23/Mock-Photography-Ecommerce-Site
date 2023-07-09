@@ -8,7 +8,7 @@ function ContextProvider({children}) {
     const [cartItems, setCartItems] = useState([])
 
     // Images API
-    const url = "https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json"
+    const url = "https://api.unsplash.com/photos/?client_id=5K8yFj7li_5ojZLRGDw9rJm0vRFEPeOJA7FKPRQ2IIw"
 
     // Get the images
     useEffect(() => {
@@ -32,7 +32,6 @@ function ContextProvider({children}) {
     // Add item to cart
     function addToCart(newItem) {
         setCartItems((prevItems) => [ ...prevItems, newItem])
-        console.log(newItem.id)
     }
 
     // Remove item from cart
